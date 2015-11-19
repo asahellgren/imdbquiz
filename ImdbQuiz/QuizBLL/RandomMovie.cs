@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ImdbQuiz;
+using Repositories;
 
 namespace QuizBLL
 {
@@ -11,9 +11,12 @@ namespace QuizBLL
     {
         public Movie GetRandomMovie()
         {
-            
+            var random = new Random();
+            var randomNumber = random.Next(1, 251);
+            return new ImdbRepository().GetById(randomNumber);
         }
 
-        public ConvertToMovieObject()
+        
+
     }
 }
