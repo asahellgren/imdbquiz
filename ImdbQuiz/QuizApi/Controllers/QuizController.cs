@@ -10,27 +10,24 @@ using Repositories;
 
 namespace QuizApi.Controllers
 {
+    [RoutePrefix("api/quiz")]
     public class QuizController : ApiController
     {
-        private Movie _randomMovie;
-
         // GET: api/Quiz/RandomMovie
-
         [HttpGet]
-        [GET("Quiz/GetRandomMovie/")]
+        [Route("randommovie")]
         public string GetRandomMovie()
         {
-            _randomMovie = new RandomMovie().GetRandomMovie();
-            return _randomMovie.Title;
+            return new RandomMovie().GetRandomMovie().Title;
         }
        
-        // GET: api/Quiz/RandomMovie
+        // GET: api/Quiz/RandomMovie/1989
         [HttpGet]
-        [GET("Quiz/GetRandomMovie/{year}")]
-        public string GetRandomMovie(string year)
+        [Route("randommovie/{title}/{year}")]
+        public string GetResult(string title, string year)
         {
-            
-            return _randomMovie.Year == year ? "Correct answer" : "Wrong answer, the year is " + _randomMovie.Year;
+            var movie = new ImdbRepository().GetByTitle(title);
+            return movie.Year == year ? "Correct" : "Wrong, the year is " + movie.Year;
         }
 
         // POST: api/Quiz
