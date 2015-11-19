@@ -25,5 +25,6 @@ namespace ImdbQuiz
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<top250imdb> top250imdb { get; set; }
     }
 }
