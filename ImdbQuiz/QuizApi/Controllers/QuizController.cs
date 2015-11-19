@@ -12,10 +12,10 @@ namespace QuizApi.Controllers
 {
     public class QuizController : ApiController
     {
-
         private Movie _randomMovie;
 
         // GET: api/Quiz/RandomMovie
+
         [HttpGet]
         [GET("Quiz/GetRandomMovie/")]
         public string GetRandomMovie()
@@ -27,9 +27,10 @@ namespace QuizApi.Controllers
         // GET: api/Quiz/RandomMovie
         [HttpGet]
         [GET("Quiz/GetRandomMovie/{year}")]
-        public int GetRandomMovie(string year)
+        public string GetRandomMovie(string year)
         {
-            return _randomMovie.Year == year ? 1 : 0;
+            
+            return _randomMovie.Year == year ? "Correct answer" : "Wrong answer, the year is " + _randomMovie.Year;
         }
 
         // POST: api/Quiz
