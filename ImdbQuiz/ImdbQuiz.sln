@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entiti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{7184B041-2208-4695-81D8-8F7C3B8760A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizBLL", "QuizBLL\QuizBLL.csproj", "{8D1D35BB-533B-455A-BF90-47F1859C0718}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7184B041-2208-4695-81D8-8F7C3B8760A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7184B041-2208-4695-81D8-8F7C3B8760A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7184B041-2208-4695-81D8-8F7C3B8760A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D1D35BB-533B-455A-BF90-47F1859C0718}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D1D35BB-533B-455A-BF90-47F1859C0718}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D1D35BB-533B-455A-BF90-47F1859C0718}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D1D35BB-533B-455A-BF90-47F1859C0718}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
