@@ -22,7 +22,7 @@
 
         var url = "http://localhost:63998/api/quiz/randommovie/yearoption/" + $.trim(title);
 
-        $('#result').text("");
+        $('#result').html("");
         $.getJSON(url, function (result) {
             $.each(result, function (k, v) {
                 $('#result').append('<tr><td><b>' + k + '</td><td>' + v + '</td></tr>');

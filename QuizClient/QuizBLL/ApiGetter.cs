@@ -23,17 +23,5 @@ namespace QuizBLL
                 return JsonConvert.DeserializeObject<RandomMovie>(jsonObject);
             }
         }
-
-
-        public async Task<MetaDataClue> GetMetaDataAsync(string title)
-        {
-            using (var httpClient = new HttpClient())
-            {
-                var uri = new Uri(Uri + "moreinfo/" + title);
-                var response = await httpClient.GetAsync(uri);
-                var jsonObject = await (response.Content.ReadAsStringAsync());
-                return JsonConvert.DeserializeObject<MetaDataClue>(jsonObject);
-            }
-        }
     }
 }
