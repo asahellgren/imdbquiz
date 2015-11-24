@@ -14,19 +14,23 @@
         $('#title').html("");
         $('#imdbRating').html("");
         $('#tomatoRating').html("");
-
         getNewMovie();
     });
 
     function getNewMovie() {
 
-        var posterUrl;
         var url = "https://microsoft-apiapp831da86c936d4c65a4e1573348daaaaa.azurewebsites.net/api/quiz/randommovie";
         $.getJSON(url, function (result) {
             $('#poster').append('<img src="' + result.PosterUrl + '" />');
             $('#title').append(result.Title);
             $('#imdbRating').append(result.ImdbRating);
             $('#tomatoRating').append(result.TomatoRating);
+            $('#nextMovie').hide();
+            $("#yearOptions").hide();
+            $('#answer').html("");
+            $('#answer').show();
+            $('#submitAnswer').show();
+            $('#nextMovie').hide();
         });
 
     };
@@ -44,7 +48,7 @@
                 $('#result').append('<tr><td><b>' + k + '</td><td>' + v + '</td></tr>');
             });
         });
-
+        $("#yearOptions").show();
     });
 
     $("#yearOptions").click(function () {
@@ -85,13 +89,14 @@
             }
             else {
                 //Fel result.value är rätt år...
-
             }
 
             $('#score').text(pointsCounter);
-
         });
-
+        
+        $('#answer').hide();
+        $('#submitAnswer').hide();
+        $('#nextMovie').show();
     });
 
 });

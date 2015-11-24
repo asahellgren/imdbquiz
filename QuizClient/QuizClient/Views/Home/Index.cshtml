@@ -2,45 +2,34 @@
     ViewBag.Title = "Home Page";
 }
 
-<h2>Movie Quiz</h2>
-
 <div id="poster" class="col-md-6">
 
+</div>
+<div id="ratings">
+   <ul class="movieHeader">
+        <li id="title"/>
+        <li>
+            <img src="~/img/imdb-2-icon.png" class="ratingLogo"/>
+        </li>
+        <li id="imdbRating"/>
+        <li><img src="~/img/RT_logo.png" class="ratingLogo"/></li>
+        <li id="tomatoRating"/>
+    </ul>
 </div>
 
 <div class="col-md-6">
     <table>
-        
-        <tr><td><b>Score:</b></td>
-        <td id="score"></td></tr>
+
         <tr>
-            <td>
-                <b>Title</b>
-            </td>
-            <td id="title"></td>
-        </tr>
-        <tr>
-            <td>
-                <b>Imdb Rating</b>
-            </td>
-            <td id="imdbRating"></td>
-        </tr>
-        <tr>
-            <td>
-                <b>Rotten Tomatoes Rating</b>
-            </td>
-            <td id="tomatoRating"></td>
+            <td><b>Score:</b></td>
+            <td id="score"></td>
         </tr>
     </table>
 
     <dl>
-        <dt>
-            <b>Ready to make a guess?:</b>
-        </dt>
-
         <dd>
-            <input type="text" id="answer" />
-            <input class="btn btn-default" type="submit" id="submitAnswer" value="Guess the year" />
+            <input type="text" id="answer" placeholder="Enter year YYYY" />
+            <input class="btn btn-default" type="submit" id="submitAnswer" value="OK" />
         </dd>
 
         <dt>
