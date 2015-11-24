@@ -27,8 +27,8 @@
             $('#tomatoRating').append(result.TomatoRating);
             $('#nextMovie').hide();
             $("#yearOptions").hide();
-            $('#answer').html("");
             $('#answer').show();
+            $('#answer').empty();
             $('#submitAnswer').show();
             $('#nextMovie').hide();
         });
@@ -79,24 +79,35 @@
             if (result == "True") {
                 if (moreInfoClicked) {
                     if (yearOptionClicked)
-                        pointsCounter += 5;
+                        pointsCounter++;
                     else {
                         pointsCounter += 8;
                     }
                 } else {
                     pointsCounter += 10;
                 }
-            }
-            else {
-                //Fel result.value är rätt år...
+            } else {
+                if (!yearOptionClicked) {
+                    var difference = parseInt(result, 10) - parseInt(answer, 10);
+                    if (difference <= 5 && difference >= -5) {
+                        if (moreInfoClicked) {
+                            pointsCounter += 3;
+                        } else {
+                            pointsCounter += 5;
+                        }
+                    }
+                }
+                pointsCounter += 5;
             }
 
             $('#score').text(pointsCounter);
+            quizCounter++;
         });
-        
         $('#answer').hide();
         $('#submitAnswer').hide();
         $('#nextMovie').show();
     });
 
+
 });
+
