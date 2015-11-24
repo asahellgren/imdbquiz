@@ -14,11 +14,12 @@
         $('#title').html("");
         $('#imdbRating').html("");
         $('#tomatoRating').html("");
+        moreInfoClicked = false;
+        yearOptionClicked = false;
         getNewMovie();
     });
 
     function getNewMovie() {
-
         var url = "https://microsoft-apiapp831da86c936d4c65a4e1573348daaaaa.azurewebsites.net/api/quiz/randommovie";
         $.getJSON(url, function (result) {
             $('#poster').append('<img src="' + result.PosterUrl + '" />');
@@ -41,9 +42,7 @@
         moreInfoClicked = true;
         $('#result').html("");
         var title = $("#title").text();
-
         var url = "https://microsoft-apiapp831da86c936d4c65a4e1573348daaaaa.azurewebsites.net/api/quiz/randommovie/moreinfo/" + $.trim(title);
-
         $.getJSON(url, function (result) {
             $.each(result, function (k, v) {
                 $('#result').append('<tr><td><b>' + k + '</td><td>' + v + '</td></tr>');
@@ -56,20 +55,15 @@
         yearOptionClicked = true;
         $('#year').html("");
         var title = $("#title").text();
-
         var url = "https://microsoft-apiapp831da86c936d4c65a4e1573348daaaaa.azurewebsites.net/api/quiz/randommovie/yearoption/" + $.trim(title);
-
-
         $.getJSON(url, function (result) {
             $.each(result, function (key, value) {
                 $('#year').append('<td>' + value + '</td>');
             });
         });
-
     });
 
     $('#submitAnswer').click(function () {
-
         $('#rightOrWrongGuess').show();
         var answer = $('#answer').val();
         console.log(answer);
@@ -107,16 +101,18 @@
             $('#score').text(pointsCounter);
             quizCounter++;
         });
-
+        if (quizCounter == 10) {
+           // alert("GAME OVER!");
+        }
+        else {
+            $('#nextMovie').show();
+        }
         $('#answer').val("");
         $('#year').html("");
         $('#result').html("");
         $('#clues').hide();
         $('#answer').hide();
         $('#submitAnswer').hide();
-        $('#nextMovie').show();
     });
-
-
 });
 
