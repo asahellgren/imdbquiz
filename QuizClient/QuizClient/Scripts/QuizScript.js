@@ -33,15 +33,9 @@
             $('#nextMovie').hide();
             $('#clues').show();
             $('#rightOrWrongGuess').html('');
-
             $('#rightOrWrongGuess').hide();
-
-
-
         });
-
     };
-
 
     $("#moreInfo").click(function () {
         moreInfoClicked = true;
@@ -87,47 +81,37 @@
             if (result == "True") {
                 $('#rightOrWrongGuess').append('<p>' + 'Correct!' + '</p>').css({ 'color': 'green', 'font-size': '150%' });
                 if (moreInfoClicked) {
-                    if (yearOptionClicked)
+                    if (yearOptionClicked) {
                         pointsCounter++;
+                    }
                     else {
                         pointsCounter += 8;
                     }
                 } else {
                     pointsCounter += 10;
                 }
-<<<<<<< HEAD
-            } else {
-                if (!yearOptionClicked) {
-                    var difference = parseInt(result, 10) - parseInt(answer, 10);
-                    if (difference <= 5 && difference >= -5) {
-                        if (moreInfoClicked) {
-                            pointsCounter += 3;
-                        } else {
-                            pointsCounter += 5;
-                        }
-                    }
-                }
-                pointsCounter += 5;
-=======
             }
             else {
-                $('#rightOrWrongGuess').append('<p>' + 'Wrong answer. The year is ' + result + '</p>').css({ 'color': 'red', 'font-size': '150%' });
-
->>>>>>> origin/develop
+                var difference = parseInt(result, 10) - parseInt(answer, 10);
+                if (difference <= 5 && difference >= -5 && !yearOptionClicked) {
+                    $('#rightOrWrongGuess').append('<p>' + 'Close guess! The year is ' + result + '</p>').css({ 'color': 'green', 'font-size': '150%' });
+                    if (moreInfoClicked) {
+                        pointsCounter += 3;
+                    } else {
+                        pointsCounter += 5;
+                    }
+                } else {
+                    $('#rightOrWrongGuess').append('<p>' + 'Wrong answer. The year is ' + result + '</p>').css({ 'color': 'red', 'font-size': '150%' });
+                }
             }
-
             $('#score').text(pointsCounter);
             quizCounter++;
         });
-<<<<<<< HEAD
-=======
 
         $('#answer').val("");
         $('#year').html("");
         $('#result').html("");
-
         $('#clues').hide();
->>>>>>> origin/develop
         $('#answer').hide();
         $('#submitAnswer').hide();
         $('#nextMovie').show();
