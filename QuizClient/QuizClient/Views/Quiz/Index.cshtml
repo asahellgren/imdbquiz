@@ -7,7 +7,7 @@
 
 <h2>Movie Quiz</h2>
 
-<div class="col-md-6">
+<div id="poster" class="col-md-6">
     <img src="@Url.Content(Model.PosterUrl)" alt="image" />
 </div>
 
@@ -59,7 +59,7 @@
         </dt>
 
         <dd>
-            <input class="btn btn-default" type="button" value="Show Options" id="options" />
+            <input class="btn btn-default" type="button" value="Show Options" id="yearOptions" />
         </dd>
     </dl>
     
@@ -67,7 +67,10 @@
     
     <table width="400"><tr id="year">
                
-           </tr></table>
+                       </tr></table>
+    
+
+    <input class="btn btn-default" type="button" value="Next Movie" id="nextMovie" />
  
 
 </div>

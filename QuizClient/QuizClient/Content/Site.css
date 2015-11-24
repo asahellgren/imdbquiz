@@ -16,6 +16,14 @@
     white-space: normal;
 }
 
+#poster {
+    text-align: right;
+}
+
+#nextMovie {
+    text-align: right;
+}
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,

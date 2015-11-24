@@ -72,7 +72,7 @@ namespace QuizApi.Controllers
         public string GetResult(string title, string year)
         {
             var movie = new ImdbRepository().GetByTitle(title);
-            return movie.Year == year ? "Correct" : "Wrong, the year is " + movie.Year;
+            return movie.Year == year ? "True" : movie.Year;
         }
 
         // POST: api/Quiz
