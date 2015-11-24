@@ -31,6 +31,13 @@
             $('#answer').empty();
             $('#submitAnswer').show();
             $('#nextMovie').hide();
+            $('#clues').show();
+            $('#rightOrWrongGuess').html('');
+
+            $('#rightOrWrongGuess').hide();
+
+
+
         });
 
     };
@@ -69,6 +76,7 @@
 
     $('#submitAnswer').click(function () {
 
+        $('#rightOrWrongGuess').show();
         var answer = $('#answer').val();
         console.log(answer);
         var title = $("#title").text();
@@ -77,6 +85,7 @@
         $.getJSON(url, function (result) {
             console.log(result);
             if (result == "True") {
+                $('#rightOrWrongGuess').append('<p>' + 'Correct!' + '</p>').css({ 'color': 'green', 'font-size': '150%' });
                 if (moreInfoClicked) {
                     if (yearOptionClicked)
                         pointsCounter++;
@@ -86,6 +95,7 @@
                 } else {
                     pointsCounter += 10;
                 }
+<<<<<<< HEAD
             } else {
                 if (!yearOptionClicked) {
                     var difference = parseInt(result, 10) - parseInt(answer, 10);
@@ -98,11 +108,26 @@
                     }
                 }
                 pointsCounter += 5;
+=======
+            }
+            else {
+                $('#rightOrWrongGuess').append('<p>' + 'Wrong answer. The year is ' + result + '</p>').css({ 'color': 'red', 'font-size': '150%' });
+
+>>>>>>> origin/develop
             }
 
             $('#score').text(pointsCounter);
             quizCounter++;
         });
+<<<<<<< HEAD
+=======
+
+        $('#answer').val("");
+        $('#year').html("");
+        $('#result').html("");
+
+        $('#clues').hide();
+>>>>>>> origin/develop
         $('#answer').hide();
         $('#submitAnswer').hide();
         $('#nextMovie').show();
