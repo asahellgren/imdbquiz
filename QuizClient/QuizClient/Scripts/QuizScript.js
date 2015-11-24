@@ -31,6 +31,13 @@
             $('#answer').show();
             $('#submitAnswer').show();
             $('#nextMovie').hide();
+            $('#clues').show();
+            $('#rightOrWrongGuess').html('');
+
+            $('#rightOrWrongGuess').hide();
+
+
+
         });
 
     };
@@ -69,6 +76,7 @@
 
     $('#submitAnswer').click(function () {
 
+        $('#rightOrWrongGuess').show();
         var answer = $('#answer').val();
         console.log(answer);
         var title = $("#title").text();
@@ -77,6 +85,7 @@
         $.getJSON(url, function (result) {
             console.log(result);
             if (result == "True") {
+                $('#rightOrWrongGuess').append('<p>' + 'Correct!' + '</p>').css({ 'color': 'green', 'font-size': '150%' });
                 if (moreInfoClicked) {
                     if (yearOptionClicked)
                         pointsCounter += 5;
@@ -88,12 +97,18 @@
                 }
             }
             else {
-                //Fel result.value är rätt år...
+                $('#rightOrWrongGuess').append('<p>' + 'Wrong answer. The year is ' + result + '</p>').css({ 'color': 'red', 'font-size': '150%' });
+
             }
 
             $('#score').text(pointsCounter);
         });
-        
+
+        $('#answer').val("");
+        $('#year').html("");
+        $('#result').html("");
+
+        $('#clues').hide();
         $('#answer').hide();
         $('#submitAnswer').hide();
         $('#nextMovie').show();
