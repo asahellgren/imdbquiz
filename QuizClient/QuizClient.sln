@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizClient", "QuizClient\QuizClient.csproj", "{00FC9882-ED5B-4610-B033-0D0E5250A2E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{3CFC2E62-5B72-4713-8600-8C11BDE5AF0A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{7F7D5AC5-F908-4870-ADB5-CEA57F4F3DAB}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1 = PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{C04E9933-D2CD-483D-A95E-AA4073BB360E}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Templates\QuizClient.json = PublishScripts\Templates\QuizClient.json
+		PublishScripts\Templates\QuizClient.param.dev.json = PublishScripts\Templates\QuizClient.param.dev.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizBLL", "QuizBLL\QuizBLL.csproj", "{9E1A3119-3F9A-4833-A0E7-8FD93DF7B74F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00FC9882-ED5B-4610-B033-0D0E5250A2E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00FC9882-ED5B-4610-B033-0D0E5250A2E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00FC9882-ED5B-4610-B033-0D0E5250A2E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00FC9882-ED5B-4610-B033-0D0E5250A2E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E1A3119-3F9A-4833-A0E7-8FD93DF7B74F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E1A3119-3F9A-4833-A0E7-8FD93DF7B74F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E1A3119-3F9A-4833-A0E7-8FD93DF7B74F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E1A3119-3F9A-4833-A0E7-8FD93DF7B74F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7F7D5AC5-F908-4870-ADB5-CEA57F4F3DAB} = {3CFC2E62-5B72-4713-8600-8C11BDE5AF0A}
+		{C04E9933-D2CD-483D-A95E-AA4073BB360E} = {3CFC2E62-5B72-4713-8600-8C11BDE5AF0A}
+	EndGlobalSection
+EndGlobal

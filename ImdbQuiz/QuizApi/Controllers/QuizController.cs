@@ -8,9 +8,11 @@ using AttributeRouting.Web.Http;
 using QuizApi.Models;
 using QuizBLL;
 using Repositories;
+using System.Web.Http.Cors;
 
 namespace QuizApi.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*", SupportsCredentials = true)]
     [RoutePrefix("api/quiz")]
     public class QuizController : ApiController
     {
@@ -49,7 +51,6 @@ namespace QuizApi.Controllers
                 Director = omdbMovie.Director,
                 Genre = omdbMovie.Genre,
                 Plot = omdbMovie.Plot,
-                Title = omdbMovie.Title,
                 Writer = omdbMovie.Writer
             };
         }

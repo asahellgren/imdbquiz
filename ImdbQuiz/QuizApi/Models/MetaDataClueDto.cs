@@ -6,8 +6,7 @@ using System.Web;
 namespace QuizApi.Models
 {
     public class MetaDataClueDto
-    {
-        public string Title { get; set; }
+    {        
         public string Genre { get; set; }
         public string Director { get; set; }
         public string Writer { get; set; }
