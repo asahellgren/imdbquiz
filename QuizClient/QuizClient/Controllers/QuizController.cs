@@ -14,22 +14,6 @@ namespace QuizClient.Controllers
 {
     public class QuizController : Controller
     {
-        // GET: Quiz
-        public async Task<ActionResult> Index()
-        {
-            RandomMovie movie;
-            do
-            {
-                ViewBag.SyncOrAsync = "Asynchronous";
-                var apiGetter = new ApiGetter();
-                movie = await apiGetter.GetRandomMovieAsync();
-            } while (movie.Title == null);
-            
-            return View(movie);
-
-
-        }
-
-       
+                 
     }
 }

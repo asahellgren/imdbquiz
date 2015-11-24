@@ -26,5 +26,11 @@ namespace QuizClient.Controllers
 
             return View();
         }
+
+        public ActionResult Quiz()
+        {
+            ViewBag.Message = "Movie Quiz";
+            return View();
+        }
     }
 }

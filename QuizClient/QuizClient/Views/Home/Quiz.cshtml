@@ -1,4 +1,7 @@
 ﻿
+@{
+    ViewBag.Title = "Quiz";
+}
 
 <h2>Movie Quiz</h2>
 
@@ -27,32 +30,32 @@
             <td id="tomatoRating"></td>
         </tr>
     </table>
-   
+
     <dl>
-    <dt>
-        <b>Ready to make a guess?:</b>
-    </dt>
+        <dt>
+            <b>Ready to make a guess?:</b>
+        </dt>
 
-    <dd>
-        <input type="text" name="guess" />
-        <input class="btn btn-default" type="submit" name="command" value="Guess the year" />
-    </dd>
+        <dd>
+            <input type="text" name="guess" />
+            <input class="btn btn-default" type="submit" name="command" value="Guess the year" />
+        </dd>
 
-    <dt>
-        <b>Clue 1: Get more information (-2 points):</b>
-    </dt>
+        <dt>
+            <b>Clue 1: Get more information (-2 points):</b>
+        </dt>
 
-    <dd>
-        <input class="btn btn-default" type="button" value="Show more info" id="moreInfo" />
-    </dd>
+        <dd>
+            <input class="btn btn-default" type="button" value="Show more info" id="moreInfo" />
+        </dd>
 
-    <dt>
-        <b>Clue 2: Get three options (-2 points):</b>
-    </dt>
+        <dt>
+            <b>Clue 2: Get three options (-2 points):</b>
+        </dt>
 
-    <dd>
-        <input class="btn btn-default" type="button" value="Show Options" id="yearOptions" />
-    </dd>
+        <dd>
+            <input class="btn btn-default" type="button" value="Show Options" id="yearOptions" />
+        </dd>
     </dl>
 
     <table id="result" width="400"></table>
@@ -66,11 +69,4 @@
 
 
 </div>
-
-
-
-
-
-
-
 

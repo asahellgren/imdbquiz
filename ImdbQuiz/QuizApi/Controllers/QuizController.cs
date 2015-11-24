@@ -12,7 +12,7 @@ using System.Web.Http.Cors;
 
 namespace QuizApi.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*", SupportsCredentials = true)]
+    [EnableCors(origins: "*", headers: "*", methods: "*", SupportsCredentials = false)]
     [RoutePrefix("api/quiz")]
     public class QuizController : ApiController
     {
@@ -68,7 +68,7 @@ namespace QuizApi.Controllers
 
         // GET: api/Quiz/RandomMovie/1989
         [HttpGet]
-        [Route("randommovie/{title}&{year}")]
+        [Route("randommovie/{title}/{year}")]
         public string GetResult(string title, string year)
         {
             var movie = new ImdbRepository().GetByTitle(title);
