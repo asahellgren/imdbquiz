@@ -30,11 +30,6 @@ namespace QuizClient.Controllers
 
         }
 
-        public async Task<ActionResult> GetMoreInfoClue(string title)
-        {
-            ViewBag.SyncOrAsync = "Asynchronous";
-            var apiGetter = new ApiGetter();
-            return View(await apiGetter.GetMetaDataAsync(title));
-        }
+       
     }
 }

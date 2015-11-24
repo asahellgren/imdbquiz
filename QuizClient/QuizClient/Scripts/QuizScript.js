@@ -24,8 +24,8 @@
 
         $('#result').html("");
         $.getJSON(url, function (result) {
-            $.each(result, function (k, v) {
-                $('#result').append('<tr><td><b>' + k + '</td><td>' + v + '</td></tr>');
+            $.each(result, function (key, value) {
+                $('#year').append('<td>' + value + '</td>');
             });
         });
 
