@@ -21,21 +21,27 @@
 
     function getNewMovie() {
         var url = "https://microsoft-apiapp831da86c936d4c65a4e1573348daaaaa.azurewebsites.net/api/quiz/randommovie";
+        $('#poster').empty();
         $.getJSON(url, function (result) {
+            console.log(result.PosterUrl);
+            if (result.PosterUrl == "N/A" || result.PosterUrl == null) {
+                getNewMovie();
+                return;
+            }
             $('#poster').append('<img src="' + result.PosterUrl + '" />');
             $('#title').append(result.Title);
             $('#imdbRating').append(result.ImdbRating);
             $('#tomatoRating').append(result.TomatoRating);
-            $('#nextMovie').hide();
-            $("#yearOptions").hide();
-            $('#answer').show();
-            $('#answer').empty();
-            $('#submitAnswer').show();
-            $('#nextMovie').hide();
-            $('#clues').show();
-            $('#rightOrWrongGuess').html('');
-            $('#rightOrWrongGuess').hide();
         });
+        $('#nextMovie').hide();
+        $("#yearOptions").hide();
+        $('#answer').show();
+        $('#answer').empty();
+        $('#submitAnswer').show();
+        $('#nextMovie').hide();
+        $('#clues').show();
+        $('#rightOrWrongGuess').html('');
+        $('#rightOrWrongGuess').hide();
     };
 
     $("#moreInfo").click(function () {
@@ -102,7 +108,7 @@
             quizCounter++;
         });
         if (quizCounter == 10) {
-           // alert("GAME OVER!");
+            // alert("GAME OVER!");
         }
         else {
             $('#nextMovie').show();
