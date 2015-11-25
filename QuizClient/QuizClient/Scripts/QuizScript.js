@@ -34,6 +34,8 @@
             $('#tomatoRating').append(result.TomatoRating);
         });
         $('#nextMovie').hide();
+        $('#submitScore').hide();
+        $('#initials').hide();
         $("#yearOptions").hide();
         $('#answer').show();
         $('#answer').empty();
@@ -105,10 +107,13 @@
                 }
             }
             $('#score').text(pointsCounter);
-            quizCounter++;
         });
-        if (quizCounter == 10) {
+        quizCounter++;
+        if (quizCounter == 2) {
             // alert("GAME OVER!");
+            $('#endGameMessage').append('<p>Game over! Total score ' + pointsCounter + '<br/>Enter your initials to submit to high scores!</p>').css({ 'color': 'whitesmoke', 'font-size': '150%' });
+            $('#submitScore').show();
+            $('#initials').show();
         }
         else {
             $('#nextMovie').show();
@@ -120,5 +125,19 @@
         $('#answer').hide();
         $('#submitAnswer').hide();
     });
+
+    $('#submitScore').click(function () {
+        var scoreObj = [{ name: 'Score1', value: pointsCounter }, { name: 'Name', value: $('#initials').val() }];
+        var postData = $.param(scoreObj);
+        $.post("https://microsoft-apiapp831da86c936d4c65a4e1573348daaaaa.azurewebsites.net/api/quiz/randommovie/", postData, function (data) {
+            if(data!=pointsCounter)
+            { alert("ERROR! Sorry, no score recorded!") }
+            else {
+                console.log(data)
+                //run function for score modal    
+            }
+        });
+    });
+
 });
 

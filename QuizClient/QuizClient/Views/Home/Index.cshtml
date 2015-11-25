@@ -29,7 +29,7 @@
     <dl id="clues">
         <dd>
             <input type="text" id="answer" placeholder="Enter year YYYY" />
-            <input class="btn btn-default" type="submit" id="submitAnswer" value="OK" />
+            <input class="btn btn-default" type="button" id="submitAnswer" value="OK" />
         </dd>
         <dd>
             <input class="btn btn-default" type="button" value="Show Clue info" id="moreInfo" />
@@ -39,15 +39,17 @@
         </dd>
     </dl>
     <div id="rightOrWrongGuess"></div>
-
+    <div id="endGameMessage"></div>
+    
     <table id="result" width="400"></table>
 
     <table width="400">
         <tr id="year"></tr>
     </table>
 
-
-    <input class="btn btn-default" type="button" value="Next Movie" id="nextMovie" />
+    <input class="btn btn-default" type="button" value="Next Movie" id="nextMovie"/>
+    <input type="text" id="initials" placeholder="Enter initials XXX" />
+    <input class="btn btn-default" type="button" value="Submit Score" id="submitScore"/>
 
 
 </div>
