@@ -1,12 +1,56 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Api";
 }
 
 <h2>API</h2>
 <div>
-    This quiz client is relying on an ASP.NET Web API for it's services and game logic.<br/>
-    Please visit our API <a href="https://microsoft-apiapp831da86c936d4c65a4e1573348daaaaa.azurewebsites.net/Help">website</a> for full API documentation.
+    This quiz client is relying on an ASP.NET Web API for it's services and game logic.<br /><br/>
+    <div class="col-md-12">
+        <b>API Documentation</b>
+    </div>
+    <div class="col-md-4">
+        GET api/quiz/randommovie
+    </div>
+    <div class="col-md-8">
+        Returns a random movie from the IMDB top 250. Shows only basic data such as title, poster and reviews.
+    </div>
+    <div class="col-md-4">
+        GET api/quiz/randommovie/moreinfo/{title}
+    </div>
+    <div class="col-md-8">
+        To be used as a first "clue". Returns meta data about the movie such as director, actors, plot etc.
+    </div>
+    <div class="col-md-4">
+        GET api/quiz/randommovie/yearoption/{title}
+    </div>
+    <div class="col-md-8">
+        To bue used as a second clue and returns an array of three different options, randomized within a 10 year span.
+    </div>
+    <div class="col-md-4">
+        GET api/quiz/randommovie/{title}/{year}
+    </div>
+    <div class="col-md-8">
+        Will check if guess is correct and return string "true", else return the correct year (yyyy).
+    </div>
+    <div class="col-md-4">
+        GET api/quiz/randommovie/gethighscore
+    </div>
+    <div class="col-md-8">
+        Returns Top 10 current high scores with name and score.
+    </div>
+    <div class="col-md-4">
+        POST randommovie/postscore/{score}
+    </div>
+    <div class="col-md-8">
+        Posts the final result after 20 rounds to the score board. <br/>
+    </div>
+    
+    <br/>
+   
      
+     
+    Please visit our API <a href="https://microsoft-apiapp831da86c936d4c65a4e1573348daaaaa.azurewebsites.net/Help">website</a> for more detailed API documentation.
+
+
 </div>
 
