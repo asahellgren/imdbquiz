@@ -16,7 +16,12 @@ namespace QuizApi.Controllers
     [RoutePrefix("api/quiz")]
     public class QuizController : ApiController
     {
-        // GET: api/Quiz/RandomMovie
+
+        /// <summary>
+        ///  Returns a random movie from the IMDB top 250.
+        /// Shows only basic data such as title, poster and reviews
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("randommovie")]
         public RandomMovieDto GetRandomMovie()
@@ -33,16 +38,16 @@ namespace QuizApi.Controllers
                 TomatoRating = omdbMovie.tomatoRating
             };
         }
-
+        /// <summary>
+        /// To be used as a first "clue". Returns meta data about the movie such as director, actors, plot etc.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("randommovie/moreinfo/{title}")]
         public MetaDataClueDto GetMoreInfo(string title)
         {
-
             var omdbMovie = new OmdbApiConnection().GetOmdbMovie(title);
-
-
-
             return new MetaDataClueDto
             {
                 Actors = omdbMovie.Actors,
@@ -55,6 +60,11 @@ namespace QuizApi.Controllers
             };
         }
 
+        /// <summary>
+        /// To bue used as a second clue and returns an array of three different options, randomized within a 10 year span.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("randommovie/yearoption/{title}")]
         public YearOptionsClue GetYearOption(string title)
@@ -66,7 +76,12 @@ namespace QuizApi.Controllers
             };
         }
 
-        // GET: api/Quiz/RandomMovie/1989
+        /// <summary>
+        /// Will check if guess is correct and return string "true", else return the correct year (yyyy).
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("randommovie/{title}/{year}")]
         public string GetResult(string title, string year)
@@ -75,19 +90,34 @@ namespace QuizApi.Controllers
             return movie.Year == year ? "True" : movie.Year;
         }
 
-        // POST: api/Quiz
-        public void Post([FromBody]string value)
+        /// <summary>
+        /// Returns Top 10 current high scores with name and score
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("randommovie/gethighscore/")]
+        public GameScore[] GetHighScore()
         {
+            return new ScoreRepository().GetAll().OrderBy(x => x.Score1).Take(10).ToArray();
         }
 
-        // PUT: api/Quiz/5
-        public void Put(int id, [FromBody]string value)
+        /// <summary>
+        /// Posts the final result after 20 rounds to the score board. 
+        /// </summary>
+        /// <param name="score"></param>
+        [HttpPost]
+        [Route("randommovie/postscore/{score}")]
+        public IHttpActionResult PostScore(GameScore score)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+           new ScoreRepository().PostScore(score);
+
+           return CreatedAtRoute("DefaultApi", new { id = score.Score1 }, score);
         }
 
-        // DELETE: api/Quiz/5
-        public void Delete(int id)
-        {
-        }
+
     }
 }

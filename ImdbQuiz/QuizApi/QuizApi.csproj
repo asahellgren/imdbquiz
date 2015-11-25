@@ -197,6 +197,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HallOfFameDto.cs" />
     <Compile Include="Models\MetaDataClueDto.cs" />
     <Compile Include="Models\RandomMovieDto.cs" />
     <Compile Include="Models\YearOptionsClue.cs" />

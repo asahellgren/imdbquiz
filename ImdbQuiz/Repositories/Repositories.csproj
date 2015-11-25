@@ -49,6 +49,8 @@
     <Compile Include="ImdbRepository.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GameScore.cs" />
+    <Compile Include="ScoreRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj">

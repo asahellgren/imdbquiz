@@ -66,6 +66,9 @@
       <DependentUpon>ImdbModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Score.cs">
+      <DependentUpon>ImdbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="top250imdb.cs">
       <DependentUpon>ImdbModel.tt</DependentUpon>
     </Compile>

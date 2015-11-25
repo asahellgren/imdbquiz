@@ -26,5 +26,6 @@ namespace ImdbQuiz
         }
     
         public virtual DbSet<top250imdb> top250imdb { get; set; }
+        public virtual DbSet<Score> Scores { get; set; }
     }
 }
