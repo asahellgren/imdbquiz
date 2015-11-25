@@ -108,8 +108,8 @@ namespace QuizApi.Controllers
         /// </summary>
         /// <param name="score"></param>
         [HttpPost]
-        [Route("randommovie/postscore/{score}")]
-        public IHttpActionResult PostScore(string score)
+        [Route("randommovie/")]
+        public IHttpActionResult PostScore([FromBody]string score)
         {
             if (!ModelState.IsValid)
             {
