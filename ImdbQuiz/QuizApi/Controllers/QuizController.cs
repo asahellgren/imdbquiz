@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using AttributeRouting.Web.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using QuizApi.Models;
 using QuizBLL;
 using Repositories;
@@ -107,15 +109,17 @@ namespace QuizApi.Controllers
         /// <param name="score"></param>
         [HttpPost]
         [Route("randommovie/postscore/{score}")]
-        public IHttpActionResult PostScore(GameScore score)
+        public IHttpActionResult PostScore(string score)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-           new ScoreRepository().PostScore(score);
 
-           return CreatedAtRoute("DefaultApi", new { id = score.Score1 }, score);
+            var gameScore = JsonConvert.DeserializeObject<GameScore>(score);
+           new ScoreRepository().PostScore(gameScore);
+
+           return CreatedAtRoute("DefaultApi", new { id = gameScore.Score1 }, score);
         }
 
 

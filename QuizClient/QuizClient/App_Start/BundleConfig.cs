@@ -10,6 +10,7 @@ namespace QuizClient
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/highscorescript.js",
                         "~/Scripts/quizscript.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

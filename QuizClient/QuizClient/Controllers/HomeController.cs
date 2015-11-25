@@ -22,5 +22,10 @@ namespace QuizClient.Controllers
         {
             return View();
         }
+
+        public ActionResult HighScore()
+        {
+            return View();
+        }
     }
 }
