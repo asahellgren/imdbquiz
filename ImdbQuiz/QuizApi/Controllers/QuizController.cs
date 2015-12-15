@@ -20,10 +20,23 @@ namespace QuizApi.Controllers
     {
 
         /// <summary>
+        /// Returns only the title of a imdb 250 movie.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("RandomImdbMovie")]
+        public string GetRandomImdbMovie()
+        {
+            var randomMovie = new Randomize().GetRandomMovie();
+            return randomMovie.Title;
+
+        }
+
+        /// <summary>
         ///  Returns a random movie from the IMDB top 250.
         /// Shows only basic data such as title, poster and reviews
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>     
         [HttpGet]
         [Route("randommovie")]
         public RandomMovieDto GetRandomMovie()

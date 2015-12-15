@@ -233,6 +233,8 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Metadata\deploymentTemplates\apiappconfig.azureresource.json" />
     <Content Include="apiapp.json" />
+    <None Include="Properties\PublishProfiles\ImdbQuiz%28ImdbQuiz%29.pubxml" />
+    <None Include="Properties\PublishProfiles\imdbquiz.pubxml" />
     <None Include="Properties\PublishProfiles\moviequiz%28MoviequizGroup%29.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
